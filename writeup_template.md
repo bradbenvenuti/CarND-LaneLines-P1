@@ -16,7 +16,7 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./examples/grayscale.jpg "Grayscale"
-
+[image1]: ./test_images/canny/example.jpg "Grayscale"
 ---
 
 ### Reflection
@@ -27,11 +27,20 @@ My pipeline consisted of 8 steps:
 1. Calculate the shape of the image/frame.
 2. Find the region of interest using the image dimensions.
 3. Convert the image to grayscale.
+[logo]: ./test_images/gray/example.jpg "Logo Title Text 2"
+
 4. Perform Gausian Blur to aid in Canny Edge detection.
+![alt text][./test_images/blur/example.jpg]
 5. Perform Canny Edge detection to find edges in the image.
+![alt text][./test_images/canny/example.jpg]
 6. Remove the pixels outside of the region of interest. Using cv2.fillPoly we create a polygon around the pixels we care about and return those.
+![alt text][./test_images/region/example.jpg]
 7. We then find lines in the region of interest using cv2.houghLinesP.
-8. Using the draw lines function we filter out unwanted lines, find left/right lines, use polyfit/regression to fit single line for each side.
+![alt text][./test_images/hough/example.jpg]
+8. We then filter out unwanted lines, find left/right lines.
+![alt text][./test_images/filter/example.jpg]
+9. Using the draw lines function we use polyfit/regression to fit single line for each side.
+![alt text][./test_images/lines/example.jpg]
 
 In order to draw a single line on the left and right lanes, I modified the draw_lines() function by first filtering out lines that had an unexpected slope.
 Using the slope, I then determined if a line was part of the left or right lane line. Once I knew this I could gather all of the x,y coordinates for each line.
